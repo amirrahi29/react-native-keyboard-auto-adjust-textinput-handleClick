@@ -4,14 +4,20 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import CustomInput from './CustomInput';
+import CustomButton from './CustomButton';
 
 const MyScreen = () => {
 
   const handleTextChange=(e)=>{
     console.log(`this field value is: ${e}`);
+  }
+
+  const onButtonClick=(e)=>{
+    console.log(`button clicked: ${e}`);
   }
 
   return (
@@ -104,16 +110,10 @@ const MyScreen = () => {
           onChangeText={(e)=>handleTextChange(e)}
         />
 
-        <View style={{
-          backgroundColor: 'orange',
-          padding: 8,
-          borderRadius: 32,
-          margin: 20,
-          alignItems: 'center',
-          marginBottom: 30
-        }}>
-          <Text style={{ color: 'white', fontSize: 24 }}>Proceed</Text>
-        </View>
+        <CustomButton
+          btnText="Proceed"
+          onClick={(e)=>onButtonClick(e)}
+        />
 
       </ScrollView>
     </KeyboardAvoidingView>
